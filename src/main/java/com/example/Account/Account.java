@@ -16,10 +16,30 @@ public class Account {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+
+    public Account() {
+    }
+
     public Account(String accountName, Customer customer) {
         this.balance = BigDecimal.ZERO;
         this.accountName = accountName;
         this.customer = customer;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public String getAccountName() {
+        return accountName;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
 }
