@@ -60,4 +60,12 @@ public class Customer {
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public LocalDateTime getRegistrationDateTime() {
+        return registrationDateTime;
+    }
 }
