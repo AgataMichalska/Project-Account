@@ -4,6 +4,8 @@ package com.example.Account.rest;
 import com.example.Account.Customer;
 import com.example.Account.Service.CustomerService;
 import com.example.Account.rest.dto.CustomerDTO;
+import com.example.Account.rest.dto.CustomerListEntryDTO;
+import com.example.Account.rest.dto.SaveCustomerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,18 +18,18 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping("/customer")
-    public List<Customer> getAllCustomers() {
+    public List<CustomerListEntryDTO> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
     @GetMapping("/customer/{id}")
-    private Customer getId(@PathVariable("id") long customerId) {
+    private CustomerDTO getId(@PathVariable("id") long customerId) {
         return customerService.getById(customerId);
     }
 
     @PostMapping("/customer")
-    public void postCustomer(@RequestBody CustomerDTO customerDTO) {
-        customerService.saveCustomer(customerDTO);
+    public void postCustomer(@RequestBody SaveCustomerDTO saveCustomerDTO) {
+        customerService.saveCustomer(saveCustomerDTO);
     }
 
 
